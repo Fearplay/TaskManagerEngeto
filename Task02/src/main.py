@@ -6,8 +6,6 @@ from mysql.connector import errorcode
 DB_NAME = "engeto"
 TABLE_NAME = "ukoly"
 
-# Globální slovník pro ukládání úkolů (může sloužit i k internímu sledování)
-ukoly = {}
 
 
 def zadny_ukol():
@@ -133,8 +131,6 @@ def pridat_ukol():
             data = (nazev_ukol, popis_ukol, "Nezahájeno")
             cursor.execute(f"INSERT INTO {TABLE_NAME} (nazev_ukol, popis_ukol, stav_ukol) VALUES (%s, %s, %s)", data)
             dataBase.commit()
-            # Uloží úkol do globálního slovníku
-            ukoly.update({nazev_ukol: popis_ukol})
             print(f"Úkol '{nazev_ukol}' byl přidán.")
             print()
         except mysql.connector.Error as err:
