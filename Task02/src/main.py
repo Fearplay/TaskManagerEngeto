@@ -7,7 +7,6 @@ DB_NAME = "engeto"
 TABLE_NAME = "ukoly"
 
 # Globální slovník pro ukládání úkolů (může sloužit i k internímu sledování)
-ukoly = {}
 
 
 def zadny_ukol():
